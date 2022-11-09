@@ -92,7 +92,7 @@ void pedirDatos(){
 void mostrarMatriz(int**puntero_matriz1,int nFilas,int nCol){
     for(int i=0;i<nFilas;i++){
 		for(int j=0;j<nCol;j++){
-			cout<<*(*(puntero_matriz1+i)+j); //puntero_matriz1[i][j]
+			cout<<*(*(puntero_matriz1+i)+j)<<" "; //puntero_matriz1[i][j]
 		}
 		cout<<"\n";
 	}cout<<"\n";
@@ -102,7 +102,7 @@ void mostrarMatriz(int**puntero_matriz1,int nFilas,int nCol){
 void mostrarMatrizz(int**puntero_matriz2,int nFilas,int nCol){
     for(int i=0;i<nFilas;i++){
 		for(int j=0;j<nCol;j++){
-			cout<<*(*(puntero_matriz2+i)+j); //puntero_matriz1[i][j]
+			cout<<*(*(puntero_matriz2+i)+j)<<" "; //puntero_matriz1[i][j]
 		}
 		cout<<"\n";
 	}cout<<"\n";
@@ -112,8 +112,24 @@ void mostrarMatrizz(int**puntero_matriz2,int nFilas,int nCol){
 void mostrarMatrizzz(int**puntero_matriz3,int nFilas,int nCol){
     for(int i=0;i<nFilas;i++){
 		for(int j=0;j<nCol;j++){
-			cout<<*(*(puntero_matriz3+i)+j); //puntero_matriz1[i][j]
+			cout<<*(*(puntero_matriz3+i)+j)<<" "; //puntero_matriz1[i][j]
 		}
 		cout<<"\n";
 	}
 }
+void sumarMatrices(int **puntero_matriz1, int **puntero_matriz2,int **puntero_matriz3, int nFilas,int nCol){
+	for(int i=0;i<nFilas;i++){
+		for(int j=0;j<nCol;j++){
+			*(*(puntero_matriz1+i)+j) += *(*(puntero_matriz2+i)+j)+= *(*(puntero_matriz3+i)+j); //almacenamos la suma en la primera para no tener que crear otra
+		}
+	}
+}
+
+void showResultingMatrix(int **puntero,int nFilas, int nCol){
+	cout<<"\nLa suma de las 3 matrices es: \n";
+	for(int i=0;i<nFilas;i++){
+		for(int j=0;j<nCol;j++){
+			cout<<*(*(puntero_matriz1+i)+j)<<" "; //puntero_matriz1[i][j]
+		}
+		cout<<"\n";
+	}
