@@ -1,0 +1,119 @@
+#include<iostream>
+#include<stdlib.h>
+
+using namespace std;
+
+void pedirDatos();
+void mostrarMatriz(int **,int,int);
+void mostrarMatrizz(int **,int,int);
+void mostrarMatrizzz(int **,int,int);
+void sumarMatrices(int **, int**,int**,int,int);
+void showResultingMatrix(int **,int,int);
+
+int **puntero_matriz1, **puntero_matriz2,**puntero_matriz3,nFilas,nCol;
+
+int main(){
+	pedirDatos();
+	mostrarMatriz(puntero_matriz1,nFilas,nCol);
+	mostrarMatrizz(puntero_matriz2,nFilas,nCol);
+	mostrarMatrizzz(puntero_matriz3,nFilas,nCol);
+	sumarMatrices(puntero_matriz1,puntero_matriz2,puntero_matriz3,nFilas,nCol);
+	showResultingMatrix(puntero_matriz1,nFilas,nCol);
+	//Liberar la memoria utilizada en matriz3
+	for(int i=0;i<nFilas;i++){
+		delete[] puntero_matriz3[i];
+	}
+	delete[] puntero_matriz3;
+	
+	//Liberar la memoria utilizada en matriz2
+	for(int i=0;i<nFilas;i++){
+		delete[] puntero_matriz2[i];
+	}
+	delete[] puntero_matriz2;
+	
+	//Liberar la memoria utilizada en matriz1
+	for(int i=0;i<nFilas;i++){
+		delete[] puntero_matriz1[i];
+	}
+	delete[] puntero_matriz1;
+	
+	return 0;
+}
+
+void pedirDatos(){
+	cout<<"Digite el tamaño de la matriz: ";
+	cin>>nFilas;
+	nCol=nFilas;
+	
+	//Reservando memoria para la primera matriz
+	puntero_matriz1 = new int*[nFilas]; //Reservar memoria para las filas
+	for(int i=0;i<nFilas;i++){
+		puntero_matriz1[i] = new int[nCol]; //Reservar memoria para las columnas
+	}
+	
+	cout<<"\nDigite los elementos de la primera matriz: \n";
+	for(int i=0;i<nFilas;i++){
+		for(int j=0;j<nCol;j++){
+			cout<<"Digite un numero ["<<i<<"]["<<j<<"]: ";
+			cin>>*(*(puntero_matriz1+i)+j); //puntero_matriz1[i][j]
+		}
+	}
+	
+	//Reservando memoria para la segunda matriz
+	puntero_matriz2 = new int*[nFilas]; //Reservar memoria para las filas
+	for(int i=0;i<nFilas;i++){
+		puntero_matriz2[i] = new int[nCol]; //Reservar memoria para las columnas
+	}
+	
+	cout<<"\nDigite los elementos de la segunda matriz: \n";
+	for(int i=0;i<nFilas;i++){
+		for(int j=0;j<nCol;j++){
+			cout<<"Digite un numero ["<<i<<"]["<<j<<"]: ";
+			cin>>*(*(puntero_matriz2+i)+j); //puntero_matriz2[i][j]
+		}   
+	}cout<<"\n";
+    
+   //Reservando memoria para la terceraa matriz
+	puntero_matriz3 = new int*[nFilas]; //Reservar memoria para las filas
+	for(int i=0;i<nFilas;i++){
+		puntero_matriz3[i] = new int[nCol]; //Reservar memoria para las columnas
+	}
+	
+	cout<<"\nDigite los elementos de la tercera matriz: \n";
+	for(int i=0;i<nFilas;i++){
+		for(int j=0;j<nCol;j++){
+			cout<<"Digite un numero ["<<i<<"]["<<j<<"]: ";
+			cin>>*(*(puntero_matriz3+i)+j); //puntero_matriz3[i][j]
+		}   
+	}cout<<"\n";
+}
+
+
+void mostrarMatriz(int**puntero_matriz1,int nFilas,int nCol){
+    for(int i=0;i<nFilas;i++){
+		for(int j=0;j<nCol;j++){
+			cout<<*(*(puntero_matriz1+i)+j); //puntero_matriz1[i][j]
+		}
+		cout<<"\n";
+	}cout<<"\n";
+	cout<<"+\n";
+	cout<<"\n";
+}
+void mostrarMatrizz(int**puntero_matriz2,int nFilas,int nCol){
+    for(int i=0;i<nFilas;i++){
+		for(int j=0;j<nCol;j++){
+			cout<<*(*(puntero_matriz2+i)+j); //puntero_matriz1[i][j]
+		}
+		cout<<"\n";
+	}cout<<"\n";
+	cout<<"+\n";
+	cout<<"\n";
+}
+void mostrarMatrizzz(int**puntero_matriz3,int nFilas,int nCol){
+    for(int i=0;i<nFilas;i++){
+		for(int j=0;j<nCol;j++){
+			cout<<*(*(puntero_matriz3+i)+j); //puntero_matriz1[i][j]
+		}
+		cout<<"\n";
+	}
+}
