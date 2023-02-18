@@ -1,4 +1,4 @@
-# Algoritmo para la suma de 3 matrices dinámicas
+# Suma de Matrices 
 
 Este es un programa en C++ que realiza la suma de tres matrices dinámicas.
 El programa solicita al usuario que ingrese las dimensiones de las matrices y 
